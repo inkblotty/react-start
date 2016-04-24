@@ -8,6 +8,10 @@ const PATHS = {
 	build: path.join(__dirname, 'build')
 };
 
+//require('./styles/main.scss');
+
+//process.env.BABEL_ENV = TARGET; //hot reloading with maintaining state didn't work
+
 const common = {
 	// Entry accepts a path or an object of entries.
 	// We'll be using the latter form given it's
@@ -29,8 +33,8 @@ const common = {
 			{
 				// Set up css
 				// Test expects a RegExp! Note slashes!
-				test: /\.css$/,
-				loaders: ['style', 'css'],
+				test: /\.scss$/,
+				loaders: ['style', 'css', "sass"],
 				include: PATHS.app
 			},
 			{
