@@ -13,9 +13,6 @@ const PATHS = {
 //process.env.BABEL_ENV = TARGET; //hot reloading with maintaining state didn't work
 
 const common = {
-	// Entry accepts a path or an object of entries.
-	// We'll be using the latter form given it's
-	// conventient with more complex configurations.
 
 	entry: {
 		app: PATHS.app
@@ -28,10 +25,11 @@ const common = {
 		path: PATHS.build,
 		filename: 'bundle.js'
 	},
+	watch: true,
 	module: {
 		loaders: [
 			{
-				// Set up css
+				// Set up scss
 				// Test expects a RegExp! Note slashes!
 				test: /\.scss$/,
 				loaders: ['style', 'css', "sass"],
