@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --progress -p",
     "start": "webpack-dev-server --content-base build --inline --port 8080"
   },
   "devDependencies": {

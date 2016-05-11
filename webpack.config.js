@@ -8,6 +8,8 @@ const PATHS = {
 	build: path.join(__dirname, 'build')
 };
 
+/* run via 'npm run build/start' */
+
 //require('./styles/main.scss');
 
 //process.env.BABEL_ENV = TARGET; //hot reloading with maintaining state didn't work
@@ -25,7 +27,6 @@ const common = {
 		path: PATHS.build,
 		filename: 'bundle.js'
 	},
-	watch: true,
 	module: {
 		loaders: [
 			{
@@ -79,6 +80,7 @@ if (TARGET === 'start' || !TARGET) {
 		// of errors in builds
 		// REMOVE FOR PRODUCTION
 		devtool: 'eval-source-map',
+		watch: true,
 		watchOptions: {
 			// More data-intesive alt to devServer
 			poll: true
@@ -90,7 +92,12 @@ if (TARGET === 'start' || !TARGET) {
 }
 
 if (TARGET === 'build') {
-	module.exports = merge(common, {});
+	module.exports = merge(common, {
+		devtool:'cheap-module-source-map',
+		watchOptions: {
+			poll: false
+		}
+	});
 }
 
 module.exports = common;
