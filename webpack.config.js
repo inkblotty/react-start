@@ -96,7 +96,14 @@ if (TARGET === 'build') {
 		devtool:'cheap-module-source-map',
 		watchOptions: {
 			poll: false
-		}
+		},
+		plugins: [
+			new webpack.DefinePlugin({
+				'process.env': {
+					'NODE_ENV': JSON.stringify('production')
+				}
+			})
+		]
 	});
 }
 
